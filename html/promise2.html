@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div class="">
+
+  </div>
+  <script type="text/javascript">
+     
+    // demo
+    async function testAsync(str) {
+      console.log("进入testAsync")
+      return str;
+      // console.log("hello async")
+    }
+    (async () => {
+      await testAsync('测试then---catch').then(v => {
+          console.log('testAsync().then' + v); // 输出 hello async
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    })()
+
+    // demo
+    // ？？测试try---catch怎么写
+    // (async () => {
+    //   // try {
+    //   //   await testAsync('测试try---catch')
+    //   // } catch (err => {
+    //   //   console.log(err);
+    //   // });
+    //   try {
+    //     await testAsync('测试try---catch');
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // })()
+    async function testLog(str) {
+      var s = s + n
+      return str;
+    }
+    testLog('测试打印-------then，catch,异常捕获').then(res => {
+      console.log(result);
+    }).catch(err => {
+      console.log(err);
+    });
+
+    // demo
+    function timeout(ms) {
+      // ??以下两种区别
+      // return new Promise((resolve) => {
+      //   setTimeout(resolve, ms);
+      // });
+
+      // return Promise.resolve({
+      //   setTimeout(resolve, ms);
+      // })
+    }
+    async function asyncPrint(value, ms) {
+      await timeout(ms);
+      console.log(value)
+    }
+    asyncPrint('2秒后打印hello world', 2200);
+
+    // demo
+    async function testAsyncResolve() {
+      return Promise.resolve('测试return Promise.resolve/ reject--------hello async')
+      //  return Promise.reject('reject-------------hello async');
+      //return Promise.resolve('hello async');
+      //  return "hello async";
+    }
+    (async () => {
+      await testAsyncResolve().then(v => {
+          console.log(v); // 输出 hello async
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+    })()
+  </script>
+</body>
+
+</html>
