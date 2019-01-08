@@ -8,10 +8,20 @@
   <!-- vue框架 -->
   <div>vue</div>
   <span @click="to('/list1Position')" class="tab"> /list1Position </span>
+  <span @click="to('/busEmit')" class="tab"> /busEmit </span>
   <!-- js封装 -->
   <div>js</div>
   <span @click="to('/commonUtils')" class="tab"> /commonUtils </span>
-
+  <!-- 插件 -->
+  <div>插件</div>
+  <span @click="to('/vue-occupy')" class="tab"> /vue-occupy </span>
+  <!-- 文件操作 -->
+  <div>文件操作,差报表导出</div>
+  <span @click="to('/downFile')" class="tab"> /downFile </span>
+  <div class="" style="font-size:12px;">
+    B端架子（路由，导航栏），树结构， 列表弹窗布局处理
+    <br> excel导出，版本控制，echart，联动二级选项卡
+  </div>
 </div>
 </template>
 
@@ -22,6 +32,10 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+
+  created() {
+
   },
   methods: {
     to(path) {

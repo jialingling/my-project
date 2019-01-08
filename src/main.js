@@ -1,6 +1,9 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import $ from 'jquery'
+import './common/dom/jquery.min.js'
+import './common/dom/jquery.qrcode.min.js'
 import {
   LoadingPlugin,
 } from 'vux'
@@ -12,6 +15,9 @@ Vue.use(ToastPlugin)
 import App from './App'
 import router from './router'
 import domDrag from './common/dom/domDrag.js'
+import VueOccupy from 'vue-occupy'
+
+Vue.use(VueOccupy)
 import {
   globalObj
 } from './common'

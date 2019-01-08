@@ -6,8 +6,14 @@
 </template>
 
 <script>
+import Bus from './pages/vueApi/bus'
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    Bus.$on('receiveBusData', (e) => {
+      alert('App.vue页面Bus.$on接收到组件数据' + e.data_a)
+    })
+  },
 }
 </script>
 

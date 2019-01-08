@@ -13,9 +13,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "jquery": "^3.3.1",
     "vue": "^2.5.2",
+    "vue-occupy": "0.0.9",
     "vue-router": "^3.0.1",
-    "vux": "^2.9.2"
+    "vux": "^2.9.2",
+    "ws": "^6.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
