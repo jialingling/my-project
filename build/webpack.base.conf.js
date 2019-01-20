@@ -78,15 +78,15 @@ const webpackConfig = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
-}
-module.exports = vuxLoader.merge(webpackConfig, {
+  },
   plugins: [
-    'vux-ui',
-    newwebpack.optimize.CommonsChunkPlugin('common.js'),
+    new webpack.optimize.CommonsChunkPlugin('common.js'),
     new webpack.ProvidePlugin({
       jQuery: "jquery",
       $: "jquery"
     })
   ]
+}
+module.exports = vuxLoader.merge(webpackConfig, {
+  plugins: ['vux-ui']
 })
