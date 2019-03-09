@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/pages/HelloWorld'
+// js基础
+import JsBasic from '@/pages/js-basic'
+
+// 组件封装
+import es6 from '@/pages/es6'
+//h5 workers
+import workers from '@/pages/web-workers/workers-demo'
+
 // 组件封装
 import calendarIndex from '@/pages/calendar-index'
 
@@ -29,6 +37,23 @@ export default new Router({
       name: 'HelloWorld',
       component: HelloWorld
     },
+    // Js基础
+    {
+      path: '/jsBasic',
+      component: JsBasic
+    },
+    // h5 workers
+    {
+      path: '/workers',
+      component: workers
+    },
+
+    // 组件封装
+    {
+      path: '/es6',
+      component: es6
+    },
+
     // 组件封装
     {
       path: '/calendarIndex',

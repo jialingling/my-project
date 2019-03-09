@@ -1,5 +1,16 @@
 <template>
 <div class="hello index-page">
+
+  <!-- js基础 -->
+  <div>jsBasic</div>
+  <span @click="to('/jsBasic')" class="tab">/jsBasic </span>
+  <!-- h5 -->
+  <div>h5 workers </div>
+  <span @click="to('/workers')" class="tab">/workers </span>
+
+  <!-- 组件封装 -->
+  <div>es6</div>
+  <span @click="to('/es6')" class="tab">/es6 </span>
   <!-- 组件封装 -->
   <div>组件</div>
   <span @click="to('/calendarIndex')" class="tab">/calendar  </span>
@@ -35,7 +46,59 @@ export default {
   },
 
   created() {
+    this.$worker.run((arg) => {
+        return `Hello, ${arg}!`
+      }, ['World'])
+      .then(result => {
+        console.log(result)
+      })
+      .catch(e => {
+        console.error(e)
+      })
+    // 通过this.$worker.run这个方法，跑起一个worker，
+    // worker是在另外的线程里面跑的，所以可以在run的第一个参数函数里面执行一个非常大计算的操作
+    // run方法像Promise一样提供.then和.catch，then的参数就是run第一个参数函数的返回值
+    this.worker = this.$worker.run(n => n + 10, [2])
+      .then(res => console.log(res))
+      .catch(e => console.log(e))
+    this.worker = this.$worker.create([{
+        message: 'pull-data',
+        func(data) {
 
+          return data
+        },
+      },
+      {
+        message: 'run-task',
+        func(id) {
+          //...
+        },
+      }
+    ])
+    let data = []
+    this.worker.postMessage('pull-data', [data])
+      .then(res => console.log(res))
+
+    this.myWorker = this.$worker.create([{
+        message: 'message1',
+        func: (arg) => {
+          return arg
+        }
+      },
+      {
+        message: 'message2',
+        func: () => 'Output 2'
+      }
+    ])
+
+    this.myWorker.postMessage('message1', ['Booppp!'])
+      .then(result => {
+        console.log(result + 'kkk')
+      })
+  },
+  destroyed() {
+    // 通过赋值null的方式，释放掉worker引用，这样就可以关闭worker，这是作者在github上说的
+    this.worker = null
   },
   methods: {
     to(path) {

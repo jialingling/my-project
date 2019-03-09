@@ -4,6 +4,7 @@ import Vue from 'vue'
 import $ from 'jquery'
 import './common/dom/jquery.min.js'
 import './common/dom/jquery.qrcode.min.js'
+import VueWorker from 'vue-worker';
 import {
   LoadingPlugin,
 } from 'vux'
@@ -18,6 +19,7 @@ import domDrag from './common/dom/domDrag.js'
 import VueOccupy from 'vue-occupy'
 
 Vue.use(VueOccupy)
+Vue.use(VueWorker);
 import {
   globalObj
 } from './common'
