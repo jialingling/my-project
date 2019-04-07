@@ -1,9 +1,21 @@
 <template>
 <div class="hello index-page">
-
+  <!-- js基础 -->
+  <div>原型，原型链，继承</div>
+  <span @click="to('/obj')" class="tab-l">/obj </span>
+  <span @click="to('/prototypeChain')" class="tab-l">/prototypeChain </span>
+  <span @click="to('/prototypeChain')" class="tab-l">/prototypeChain </span>
+  <span @click="to('/inherit')" class="tab-l">/inherit </span>
   <!-- js基础 -->
   <div>jsBasic</div>
   <span @click="to('/jsBasic')" class="tab">/jsBasic </span>
+  <span @click="to('/domApi')" class="tab">/domApi </span>
+  <!--css-->
+  <div>css</div>
+  <span @click="to('/center')" class="tab">/center </span>
+  <span @click="to('/layout')" class="tab">/layout </span>
+  <span @click="to('/css3Demo')" class="tab">/css3Demo </span>
+
   <!-- h5 -->
   <div>h5 workers </div>
   <span @click="to('/workers')" class="tab">/workers </span>
@@ -20,6 +32,10 @@
   <div>vue</div>
   <span @click="to('/list1Position')" class="tab"> /list1Position </span>
   <span @click="to('/busEmit')" class="tab"> /busEmit </span>
+  <span @click="to('/compoment-v-model')" class="tab-l"> /componentVModel </span>
+  <span @click="testRouteParams('/compoment-v-model/id1')" class="tab-l"> /testRouteParams </span>
+  <span @click="testRouteParamsByname('ComponentVModel')" class="tab-l"> /ComponentVModelName </span>
+  <span @click="to('/VuexDemo')" class="tab-l">/VuexDemo</span>
   <!-- js封装 -->
   <div>js</div>
   <span @click="to('/commonUtils')" class="tab"> /commonUtils </span>
@@ -101,8 +117,21 @@ export default {
     this.worker = null
   },
   methods: {
+    /*通过query传参*/
     to(path) {
       this.$router.push(path)
+    },
+    /*通过params传参*/
+    testRouteParams(path) {
+      this.$router.push(path)
+    },
+    testRouteParamsByname(name) {
+      this.$router.push({
+        name: name,
+        params: {
+          id: 'idByname'
+        }
+      })
     }
   }
 }
@@ -114,6 +143,13 @@ export default {
   color: #42b983;
   display: inline-block;
   width: 100px;
+
+}
+
+.tab-l {
+  color: #42b983;
+  display: inline-block;
+  width: 200px;
 
 }
 
