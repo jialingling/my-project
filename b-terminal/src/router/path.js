@@ -1,4 +1,9 @@
 /** 根目录 index*/
+
+export const PATH_IVIEW = '/iviewDemo'
+export const PATH_IVIEW_FORM = '/iviewForm'
+
+
 export const PATH_ROOT = '/'
 //登录
 export const PATH_LOGIN = '/login'

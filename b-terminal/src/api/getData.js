@@ -1,7 +1,7 @@
-import fetch from '@/config/fetch'
+// import fetch from '@/config/fetch'
 
 /**
  *  getpagelist
  */
 
-export const getpagelist = () => fetch();
+// export const getpagelist = () => fetch();
