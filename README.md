@@ -1,2 +1,2 @@
 # my-project
-components,common js
+components,common js£¬test
